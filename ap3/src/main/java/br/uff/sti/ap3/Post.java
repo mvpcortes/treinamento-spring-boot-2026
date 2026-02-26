@@ -1,17 +1,28 @@
 package br.uff.sti.ap3;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
 import lombok.With;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.MappedCollection;
+import org.springframework.data.relational.core.mapping.Table;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Table(name="post", schema = "ap3")
 @With
 public record Post(
         @Id Long id,
-        LocalDateTime data,
-        String mensagem,
-        Long usuarioId,
+        @NotNull LocalDateTime dataPostagem,
+        @Size(max=2000) String mensagem,
+        @NotNull Long usuarioId,
+        @MappedCollection(idColumn = "post_id", keyColumn = "ordem")
         List<Tag> tags
 ) {
+
+        private static List<Tag> strToTag(List<String> strTags) {
+            return strTags.stream().map(Tag::new).toList();
+    }
 }

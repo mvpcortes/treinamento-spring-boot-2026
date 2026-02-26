@@ -22,7 +22,7 @@ public class PostService {
     public Post save(Post post){
         assert post.id() == null;
 
-        post = post.withData(LocalDateTime.now());
+        post = post.withDataPostagem(LocalDateTime.now());
 
         final Set<ConstraintViolation<Post>> violations = validator.validate(post);
         if (!violations.isEmpty()) {
