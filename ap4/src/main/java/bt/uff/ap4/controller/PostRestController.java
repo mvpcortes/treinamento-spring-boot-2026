@@ -1,5 +1,7 @@
-package bt.uff.ap4;
+package bt.uff.ap4.controller;
 
+import bt.uff.ap4.modelo.Post;
+import bt.uff.ap4.service.PostService;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -11,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("post")
+@RequestMapping("api/post")
 @AllArgsConstructor
 public class PostRestController {
 

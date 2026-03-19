@@ -1,4 +1,4 @@
-package bt.uff.ap4;
+package bt.uff.ap4.modelo;
 
 import org.springframework.data.relational.core.mapping.Table;
 

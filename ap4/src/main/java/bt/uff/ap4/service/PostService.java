@@ -1,8 +1,13 @@
-package bt.uff.ap4;
+package bt.uff.ap4.service;
 
+import bt.uff.ap4.modelo.Post;
+import bt.uff.ap4.modelo.PostComUsuario;
+import bt.uff.ap4.repository.PostRepository;
+import bt.uff.ap4.repository.UsuarioRepository;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validator;
 import lombok.AllArgsConstructor;
+import lombok.val;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -18,6 +23,9 @@ public class PostService {
     private final Validator validator;
 
     private final PostRepository postRepository;
+
+    private final UsuarioRepository usuarioRepository;
+
 
     @Transactional
     public Post save(Post post){
@@ -42,5 +50,17 @@ public class PostService {
     @Transactional(readOnly = true)
     public Page<Post> findAll(Pageable pageable) {
         return postRepository.findAll(pageable);
+    }
+
+    @Transactional(readOnly = true)
+    public PostComUsuario findObyComUsuarioById(long id){
+        val post = findObjById(id);
+
+        val usuario = usuarioRepository.findById(post.usuarioId()).orElseThrow();
+
+        return new PostComUsuario(
+                post,
+                usuario
+        );
     }
 }

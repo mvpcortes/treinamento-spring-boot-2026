@@ -1,5 +1,6 @@
 package bt.uff.ap4;
 
+import bt.uff.ap4.modelo.Post;
 import lombok.val;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jdbc.core.convert.JdbcCustomConversions;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Configuration
-@EnableJdbcRepositories(basePackageClasses = {Post.class})
+@EnableJdbcRepositories(basePackageClasses = {Ap4Application.class})
 public class JdbcConfiguration extends AbstractJdbcConfiguration {
 
     /**

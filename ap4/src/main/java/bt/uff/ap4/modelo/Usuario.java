@@ -1,4 +1,4 @@
-package bt.uff.ap4;
+package bt.uff.ap4.modelo;
 
 import jakarta.validation.constraints.NotNull;
 import org.springframework.data.annotation.Id;
