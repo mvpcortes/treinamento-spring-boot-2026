@@ -3,11 +3,11 @@ package br.uff.sti.ap2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-//@SpringBootApplication
-public class Ap2Application {
+@SpringBootApplication
+public class Ap21Application {
 
 	public static void main(String[] args) {
-		try(var context = SpringApplication.run(Ap2Application.class, args)){
+		try(var context = SpringApplication.run(Ap21Application.class, args)){
 			context.getBean(AloMundoComponent.class).aloMundo("jupiter");
 		}
 	}
