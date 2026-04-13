@@ -2,6 +2,7 @@ package bt.uff.ap4.controller;
 
 import lombok.AllArgsConstructor;
 import lombok.val;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RestController
+@Controller
 @RequestMapping("aviso_arquivo")
 @AllArgsConstructor
 public class AvisoArquivoController {
@@ -19,8 +20,8 @@ public class AvisoArquivoController {
 
         val mv = new ModelAndView("aviso_arquivo/unitario/get");
 
-        mv.addObject("nome_da_pessoa", "André");
-        mv.addObject("nome_do_documento", "dados_curso.xlsx");
+        mv.addObject("nome_da_pessoa", "Marcos");
+        mv.addObject("nome_do_documento", "apresentação.pptx");
 
         return mv;
     }
